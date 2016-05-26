@@ -1,0 +1,13 @@
+{% block content %}
+<h1>Archiv</h1>
+<p>Hier finden Sie sämtliche Videos, die Ihr Raspberry Pi im Überwachungsmodus aufgezeichnet hat.</p>
+
+{% for video in video %}
+    <h3>{{ video }}</h3>
+    <div align="center" class="embed-responsive embed-responsive-16by9">
+        <video class="embed-responsive-item">
+            <source src="videos/{{ video }}" type="video/mp4">
+        </video>
+    </div>
+{% endfor %}
+{% endblock %}

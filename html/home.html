@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h1>Videoüberachung mit Raspberry Pi</h1>
+<p>Hier können Sie die Videoüberwachung mit Ihrem Raspberry Pi steuern. Sie können auswählen zwichen den verschiedenen
+Modi. Falls sie Hilfe brauchen, können Sie sich auf der Hilfe-Seite die Dokumentation herunterladen.</p>
+
+<button class="btn btn-default">Streamen</button>
+<button class="btn btn-default">Überwachen</button>
+<button class="btn btn-default">Ausschalten</button>
+
+{% if stream == true %}
+<h3>Hier sehen Sie den Stream</h3>
+<div align="center" class="embed-responsive embed-responsive-16by9">
+    <video class="embed-responsive-item">
+        <source src="10.142.126.120:8554/stream" type="video/mp4"> <!-- Source anpassen!!! -->
+    </video>
+</div>
+{% endif %}
+
+{% endblock %}
