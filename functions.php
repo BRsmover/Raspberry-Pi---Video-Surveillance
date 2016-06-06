@@ -23,7 +23,7 @@ function getVideos() {
     if(!empty($videos)) {
         return $videos;
      } else {
-        header("Location: index.php?site=error");
+        header("Location: index.php?site=none");
         die();
      }
 }
@@ -32,7 +32,7 @@ function getVideos() {
 function startStream() {
 	// More information: http://www.instructables.com/id/Raspberry-Pi-Video-Streaming/?ALLSTEPS
 	endAll();
-	shell_exec("sudo uv4l --driver raspicam --auto-video_nr");
+	shell_exec("/home/pi/scripts/stream.sh");
 	header("Location: index.html?stream=true");
 }
 
@@ -40,13 +40,11 @@ function startStream() {
 function startMotion() {
 	// More information: http://strobelstefan.org/?p=5328
 	endAll();
-	shell_exec("sudo uv4l --driver raspicam --auto-video_nr");
-	shell_exec("sudo start motion -c /home/pi/motion-backup.conf-n");
+	shell_exec("/home/pi/scripts/motion.sh");
 }
 
 // End all processes
 function endAll() {
-	shell_exec("sudo pkill uv4l");
-	shell_exec("sudo pkill motion");
+	shell_exec("/home/pi/scripts/stop.sh");
 }
 ?>

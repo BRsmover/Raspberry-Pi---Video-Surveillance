@@ -30,8 +30,14 @@ else if($site == "help") {
     echo(parseSite('help', array()));
 }
 
+// No videos
+else if($site == "none") {
+    echo(parseSite('none', array()));
+}
+
 // Error
 else {
     echo(parseSite('error', array()));
 }
+
 ?>
