@@ -21,6 +21,7 @@ function parseSite($site, $data) {
 function getVideos() {
     $videos = array_diff(scandir("videos/"), array(".", ".."));
     if(!empty($videos)) {
+		var_dump($videos);
         return $videos;
      } else {
         header("Location: index.php?site=none");
