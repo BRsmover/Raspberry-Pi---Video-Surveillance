@@ -17,11 +17,31 @@ function parseSite($site, $data) {
 	return $template->render($data);
 }
 
+// Get camera mode
+function getMode() {
+	if (isset($_GET['mode'])) {
+		$mode = '>>' . $_GET['mode'] . '<<';
+		callSpecifiedFunction($mode);
+		return $mode;
+	} else {
+		return ">>Nicht gesetzt<<";
+	}
+}
+
+// Switch to decide which method to call to start bash script
+function callSpecifiedFunction($mode) {
+	switch($mode) {
+		case 'stream' : startStream();
+		case 'motion' : startMotion();
+		case 'aus' : endAll();
+	}
+}
+
 // Get videos for archive
 function getVideos() {
-    $videos = array_diff(scandir("videos/"), array(".", ".."));
+    $videos = array_diff(scandir("../videos/"), array(".", ".."));
     if(!empty($videos)) {
-		var_dump($videos);
+		//var_dump($videos);
         return $videos;
      } else {
         header("Location: index.php?site=none");
@@ -33,19 +53,21 @@ function getVideos() {
 function startStream() {
 	// More information: http://www.instructables.com/id/Raspberry-Pi-Video-Streaming/?ALLSTEPS
 	endAll();
-	shell_exec("/home/pi/scripts/stream.sh");
-	header("Location: index.html?stream=true");
+	exec("/var/www/html/152-Pi-BJ/scripts/stream.sh");
+	header("Location: index.html?stream=true&mode=stream");
 }
 
 // Start motion detection
 function startMotion() {
 	// More information: http://strobelstefan.org/?p=5328
 	endAll();
-	shell_exec("/home/pi/scripts/motion.sh");
+	exec("/var/www/html/152-Pi-BJ/scripts/motion.sh");
+	header("Location: index.html?mode=motion");
 }
 
 // End all processes
 function endAll() {
-	shell_exec("/home/pi/scripts/stop.sh");
+	exec("/var/www/html/152-Pi-BJ/scripts/stop.sh");
+	header("Location: index.html?mode=aus");
 }
 ?>

@@ -5,9 +5,11 @@
 <p>Hier können Sie die Videoüberwachung mit Ihrem Raspberry Pi steuern. Sie können auswählen zwichen den verschiedenen
 Modi. Falls sie Hilfe brauchen, können Sie sich auf der Hilfe-Seite die Dokumentation herunterladen.</p>
 
-<button class="btn btn-default">Streamen</button>
-<button class="btn btn-default">Überwachen</button>
-<button class="btn btn-default">Ausschalten</button>
+<div class="alert alert-info" role="alert">Die Kamera ist in folgendem Modus: {{ mode }}</div>
+
+<a class="btn btn-default" href="index.php?mode=stream">Streamen</a>
+<a class="btn btn-default" href="index.php?mode=motion">Überwachen</a>
+<a class="btn btn-default" href="index.php?mode=aus">Ausschalten</a>
 
 {% if stream == true %}
 <h3>Hier sehen Sie den Stream</h3>

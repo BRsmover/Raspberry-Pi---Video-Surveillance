@@ -11,12 +11,13 @@ $site = getSite();
 
 // Home
 if($site == "home") {
+    $mode = getMode();
     if(isset($_GET['stream'])) {
         if ($_GET['stream'] == true) {
-            echo(parseSite('home', array("stream" => $_GET['stream'])));
+            echo(parseSite('home', array("mode" => $mode, "stream" => $_GET['stream'])));
         }
     } else {
-        echo(parseSite('home', array()));
+        echo(parseSite('home', array("mode" => $mode)));
     }
 }
 

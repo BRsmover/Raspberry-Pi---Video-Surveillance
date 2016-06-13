@@ -1,0 +1,8 @@
+1. Add Margin to Footer
+2. Get Information to files with filetype()
+3. Save mode in file and display content on site
+4. Buttons
+    link with get
+        am anfang von functions.php - if isset -> switch
+
+    oder: so wie jetzt -> warum werden die funktionen nicht aufgerufen??
