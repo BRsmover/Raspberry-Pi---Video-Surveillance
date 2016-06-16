@@ -11,12 +11,13 @@ Modi. Falls sie Hilfe brauchen, können Sie sich auf der Hilfe-Seite die Dokumen
 <a class="btn btn-default" href="index.php?function=motion">Überwachen</a>
 <a class="btn btn-default" href="index.php?function=stop">Ausschalten</a>
 
-{% if stream == true %}
+{% if mode == "stream" %}
 <h3>Hier sehen Sie den Stream</h3>
 <div align="center" class="embed-responsive embed-responsive-16by9">
     <!--<video src="10.142.126.120:8554/stream" class="embed-responsive-item">-->
     <video class="embed-responsive-item">
-        <source src="https://cam3.zurich-airport.com/live.cgi?ch=3&i=1466067504" type="video/mp4">
+        <!--<source src="10.142.126.120:8554/stream/video.mjpeg" type="video/mp4">-->
+        <iframe src="10.142.126.120:8554/stream/video.mjpeg"></iframe>
     </video>
     <!--<img src="10.142.126.120:8554/stream/video.mjpeg" />-->
 </div>

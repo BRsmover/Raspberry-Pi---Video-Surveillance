@@ -104,7 +104,7 @@ function startStream() {
 	// More information: http://www.instructables.com/id/Raspberry-Pi-Video-Streaming/?ALLSTEPS
 	endAll();
 	exec("/var/www/html/152-Pi-BJ/scripts/stream.sh");
-	header("Location: index.php?stream=true");
+	header("Location: index.php");
 	die();
 }
 
