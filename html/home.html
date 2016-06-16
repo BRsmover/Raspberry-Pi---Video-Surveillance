@@ -7,16 +7,18 @@ Modi. Falls sie Hilfe brauchen, können Sie sich auf der Hilfe-Seite die Dokumen
 
 <div class="alert alert-info" role="alert">Die Kamera ist in folgendem Modus: {{ mode }}</div>
 
-<a class="btn btn-default" href="index.php?mode=stream">Streamen</a>
-<a class="btn btn-default" href="index.php?mode=motion">Überwachen</a>
-<a class="btn btn-default" href="index.php?mode=aus">Ausschalten</a>
+<a class="btn btn-default" href="index.php?function=stream">Streamen</a>
+<a class="btn btn-default" href="index.php?function=motion">Überwachen</a>
+<a class="btn btn-default" href="index.php?function=stop">Ausschalten</a>
 
 {% if stream == true %}
 <h3>Hier sehen Sie den Stream</h3>
 <div align="center" class="embed-responsive embed-responsive-16by9">
-    <video class="embed-responsive-item">
-        <source src="10.142.126.120:8554/stream" type="video/mp4"> <!-- Source anpassen!!! -->
+    <!--<video src="10.142.126.120:8554/stream" class="embed-responsive-item">-->
+    <video src="https://cam3.zurich-airport.com/live.cgi?ch=3&i=1466060831" class="embed-responsive-item">
+        <!--<source src="10.142.126.120:8554/stream" type="video/mp4"> &lt;!&ndash; Source anpassen!!! &ndash;&gt;-->
     </video>
+    <!--<img src="10.142.126.120:8554/stream/video.mjpeg" />-->
 </div>
 {% endif %}
 

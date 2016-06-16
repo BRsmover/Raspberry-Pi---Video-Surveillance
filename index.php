@@ -11,13 +11,21 @@ $site = getSite();
 
 // Home
 if($site == "home") {
+    // read mode from mode.txt
     $mode = getMode();
+
+    // parse site with or without stream
     if(isset($_GET['stream'])) {
         if ($_GET['stream'] == true) {
             echo(parseSite('home', array("mode" => $mode, "stream" => $_GET['stream'])));
         }
     } else {
         echo(parseSite('home', array("mode" => $mode)));
+    }
+
+    // if get value function is set call
+    if (isset($_GET['function'])) {
+        callSpecifiedFunction($_GET['function']);
     }
 }
 
