@@ -66,6 +66,38 @@ function getVideos() {
      }
 }
 
+// Format names of videos into dates
+function getDates($videos) {
+	$formattedDates = array();
+
+	foreach ($videos as $video) {
+		// Remove unused parts
+		// Split by dash
+		$dash = explode("-", $video);
+		// Remove extension
+		$extension = explode(".", $dash[1]);
+
+		// Define the parts
+		// Separate the year
+		$year = substr($extension[0], 0, 4);
+		// Separate the month
+		$month = substr($extension[0], 4, 2);
+		// Separate the day
+		$day = substr($extension[0], 6, 2);
+		// Separate the hour
+		$hour = substr($extension[0], 8, 2);
+		// Separate the minute
+		$minute = substr($extension[0], 10, 2);
+		// Separate the second
+		$second = substr($extension[0], 12, 2);
+
+		// Make it one big string
+		$formattedDate = $year . '-' . $month . '-' . $day . ' ' . $hour . ':' . $minute . ':' . $second;
+		array_push($formattedDates, $formattedDate);
+	}
+	return $formattedDates;
+}
+
 // Start streaming
 function startStream() {
 	echo 'startStream';

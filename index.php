@@ -31,7 +31,11 @@ if($site == "home") {
 
 // Archiv
 else if($site == "archiv") {
-    echo(parseSite('archiv', array("videos" => getVideos())));
+    // Get names of videos
+    $videos = getVideos();
+    // Format names into dates
+    $dates = getDates($videos);
+    echo(parseSite('archiv', array("videos" => $videos, "dates" => $dates)));
 }
 
 // About

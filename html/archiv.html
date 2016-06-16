@@ -4,8 +4,8 @@
 <h1>Archiv</h1>
 <p>Hier finden Sie sämtliche Videos, die Ihr Raspberry Pi im Überwachungsmodus aufgezeichnet hat.</p>
 
-{% for video in videos %}
-    <h3>{{ video }}</h3><br/>
+{% for key,video in videos %}
+    <h3>{{ dates[key] }}</h3><br/>
     <div align="center" class="embed-responsive embed-responsive-16by9">
         <video controls src="../../videos/{{ video }}" type="video/ogg" class="embed-responsive-item" />
     </div>
