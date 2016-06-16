@@ -22,6 +22,7 @@ function getMode() {
 	// Check if file exists
 	$exists = file_exists('mode.txt');
 	if ($exists == true) {
+		// If it does, get the content
 		$mode = file_get_contents('mode.txt');
 		return $mode;
 	} else {
