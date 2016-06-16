@@ -43,16 +43,15 @@ function callSpecifiedFunction($mode) {
 		case 'stop':
 			writeModeToFile($mode);
 			endAll();
+			header("Location: index.php");
+			die();
 			break;
 	}
 }
 
 // Save selected mode by writing it into the mode.txt
 function writeModeToFile($mode) {
-	$handle = fopen("mode.txt", "w");
-	fwrite($handle, $mode);
-	fclose($handle);
-	echo 'mode written to file';
+	file_put_contents('mode.txt', $mode);
 }
 
 // Get videos for archive
@@ -88,7 +87,6 @@ function startMotion() {
 
 // End all processes
 function endAll() {
-	echo 'endAll';
 	exec("/var/www/html/152-Pi-BJ/scripts/stop.sh");
 }
 ?>
