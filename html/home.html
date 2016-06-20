@@ -14,12 +14,29 @@ Modi. Falls sie Hilfe brauchen, können Sie sich auf der Hilfe-Seite die Dokumen
 {% if mode == "stream" %}
 <h3>Hier sehen Sie den Stream</h3>
 <div align="center" class="embed-responsive embed-responsive-16by9">
+    <!--Variante 1-->
     <!--<video src="10.142.126.120:8554/stream" class="embed-responsive-item">-->
-    <video class="embed-responsive-item">
         <!--<source src="10.142.126.120:8554/stream/video.mjpeg" type="video/mp4">-->
-        <iframe src="10.142.126.120:8554/stream/video.mjpeg"></iframe>
-    </video>
+    <!--</video>-->
+
+    <!--Variante 2-->
+    <!--<video class="embed-responsive-item">-->
+        <!--<source src="10.142.126.120:8554/stream/video.mjpeg" type="video/mp4">-->
+    <!--</video>-->
+
+    <!--Variante 3-->
+    <!--<video class="embed-responsive-item">-->
+        <!--<source src="10.142.126.120:8554/stream/video.mjpeg" type="application/x-mpegURL">-->
+    <!--</video>-->
+
+    <!--Variante 4-->
     <!--<img src="10.142.126.120:8554/stream/video.mjpeg" />-->
+
+    <!--Variante 5-->
+    <!--<iframe src="10.142.126.120:8554/stream/video.mjpeg"></iframe>-->
+
+    <!--Dieses iframe ist nur zu Testzwecken-->
+    <iframe src="http://www.pitv.ch/schilthorn/video/schilthorn.mp4"></iframe>
 </div>
 {% endif %}
 
